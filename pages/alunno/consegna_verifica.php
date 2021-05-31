@@ -22,10 +22,22 @@
             <li class="nav-item active">
                 <a class="nav-link" href="alunno_page.php">Verifiche<span class="sr-only">(current)</span></a>
             </li>
+            <li class="nav-item">
+                <a class="nav-link" href="i_miei_voti.php">I miei voti</a>
+            </li>
+            </ul>
+            <ul class="navbar-nav ml-auto">
+                <li class="nav-item">
+                <?php
+                    session_start();
+                    echo('<a class="badge badge-dark">' . $_SESSION['nome'] . '</a>');
+                    session_abort();
+                ?>
+                </li>
             </ul>
         </div>
     </nav>
-    <h1>Consegna qui la tua verifica</h1>
+    <h2 align="center">Consegna qui la tua verifica</h2>
     <!-- upload verifica -->
     <div class="card" style="margin-left: 20%; margin-right: 20%; margin-top: 5%">
         <div class="card-body">

@@ -31,7 +31,7 @@
             $stmt = $con->prepare("COMMIT;");
             $stmt -> execute();
             $stmt = $con->prepare("INSERT INTO docentidelleclassi (id_classe, id_docente) VALUES  (:id_classe, :id_docente)");
-            $stmt -> bindParam(":id_classe", $id, PDO::PARAM_INT);
+            $stmt -> bindParam(":id_classe", $id, PDO::PARAM_STR);
             $stmt -> bindParam(":id_docente", $id_docente, PDO::PARAM_INT);
             $stmt -> execute();
             header("location: form_add_classe.php");

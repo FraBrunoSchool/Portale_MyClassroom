@@ -19,16 +19,16 @@
         $data=$_POST["data"];
         $luogo=$_POST["luogo"];
         $email=$_POST["email"];
-        $classe=$POST["classe"];
+        $classe=$_POST["classe"];
 
         $con = new PDO("mysql:host=$servername;dbname=db_myclassroom", $username);
         $con->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-        $stmt = $con->prepare("SELECT id_docente FROM docenti WHERE id_docente = :id");
+        $stmt = $con->prepare("SELECT id_alunno FROM alunni WHERE id_alunno = :id");
         $stmt -> bindParam(":id", $id, PDO::PARAM_INT);
         $stmt -> execute();
         $result = $stmt -> fetch(PDO::FETCH_ASSOC);
         if($result == ""){
-            $stmt = $con->prepare("INSERT INTO alunni (id_alunno, password, nome, cognome, data_nascita, luogo_nascita, email, id_classe ) VALUES  (:id_docente, :password, :nome, :cognome, :data_nascita, :luogo_nascita, :email, :id_classe)");
+            $stmt = $con->prepare("INSERT INTO alunni (id_alunno, password, nome, cognome, data_nascita, luogo_nascita, email, id_classe ) VALUES  (:id_alunno, :password, :nome, :cognome, :data_nascita, :luogo_nascita, :email, :id_classe)");
             $stmt -> bindParam(":id_alunno", $id, PDO::PARAM_INT);
             $stmt -> bindParam(":password", $psw, PDO::PARAM_STR);
             $stmt -> bindParam(":nome", $nome, PDO::PARAM_STR);

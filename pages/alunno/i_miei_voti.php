@@ -23,9 +23,18 @@
                 <a class="nav-link" href="i_miei_voti.php">I miei voti<span class="sr-only">(current)</span></a>
             </li>
             </ul>
+            <ul class="navbar-nav ml-auto">
+                <li class="nav-item">
+                <?php
+                    session_start();
+                    echo('<a class="badge badge-dark">' . $_SESSION['nome'] . '</a>');
+                    session_abort();
+                ?>
+                </li>
+            </ul>
         </div>
     </nav>
-    <h1>Le Tue Verifiche</h1>
+    <h2 align="center">Le Tue Verifiche</h2>
     <table class="table">
     <thead>
         <tr>

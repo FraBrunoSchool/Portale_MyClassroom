@@ -23,14 +23,18 @@
                 <a class="nav-link" href="i_miei_voti.php">I miei voti</a>
             </li>
             </ul>
+            <ul class="navbar-nav ml-auto">
+                <li class="nav-item">
+                <?php
+                    session_start();
+                    echo('<a class="badge badge-dark">' . $_SESSION['nome'] . '</a>');
+                    session_abort();
+                ?>
+                </li>
+            </ul>
         </div>
     </nav>
-    <?php
-        session_start();
-        echo("Bentornato " . $_SESSION['nome']. " !");
-        session_abort();
-    ?>
-    <h1>Le Tue Verifiche</h1>
+    <h2 align="center">Le Tue Verifiche</h2>
     <table class="table">
     <thead>
         <tr>
@@ -61,7 +65,6 @@
             echo('<tr>');
             echo('<th scope="row">' . $row['id_verifica'] . '</th>');
             echo('<td><a href="http://localhost/Elaborato/Portale_MyClassroom/Uploads/' . $row['id_verifica'] . '_' . $row['titolo_documento'] . '/' . $row['titolo_documento']. '" target="_blank" >' . $row['titolo_documento'] . '</a></td>');
-            //echo('<a href="http://localhost/Elaborato/Portale_MyClassroom/Uploads/' . $row['id_verifica'] . '_' . $row['titolo_documento'] . '/' . $row['titolo_documento']. '" target="_blank" >' . $row['titolo_documento'] . '</a>');
             echo('<td>' . $row['data_ora_scadenza'] . '</td>');
             echo('<td>' . $row['nome'] . '</td>');
             echo('<td>' . $row['cognome'] . '</td>');

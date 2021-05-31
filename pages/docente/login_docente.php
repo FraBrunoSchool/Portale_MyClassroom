@@ -35,7 +35,6 @@
 					$_SESSION['cognome'] = $row['cognome'];
 					header("location: docente_page.php");  //renderizza alla home		
 				}
-				//$stmt->closeCursor(); in MySQL è inessenziale
 				$con = NULL; //chiudo connessione
 			} catch(PDOException $e) { //controllo errori di connessione
 				echo "Error: Failed to connect to DB: " . $e->getMessage();

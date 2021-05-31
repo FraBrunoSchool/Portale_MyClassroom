@@ -9,7 +9,7 @@
 </head>
 <body>
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-        <a class="navbar-brand" href="">
+        <a class="navbar-brand" href="../../index.html">
             <img src="../../img/logo.png" alt="..." width="150px" height="25px"/>
         </a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
@@ -29,13 +29,24 @@
             <li class="nav-item">
                 <a class="nav-link" href="form_add_studente.php">Add Studente</a>
             </li>
+            <li class="nav-item">
+                <a class="nav-link" href="form_bind_classe_docente.php">Bind Classe-Docente</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="query.php">Query</a>
+            </li>
+            </ul>
+            <ul class="navbar-nav ml-auto">
+                <li class="nav-item">
+                <?php
+                    session_start();
+                    echo('<a class="badge badge-dark">' . $_SESSION['nome'] . '</a>');
+                    //echo();
+                ?>
+                </li>
             </ul>
         </div>
     </nav>
-    <?php
-    session_start();
-    echo("Bentornato " . $_SESSION['nome']. " !")
-    ?>
     <h2 align="center">Nuovo Dirigente</h2>
     <div class="card" style="margin-left: 20%; margin-right: 20%; margin-top: 5%">
         <div class="card-body">

@@ -33,9 +33,8 @@
 					$_SESSION['id_dirigenza'] = $row['id_dirigenza'];
 					$_SESSION['nome'] = $row['nome'];
 					$_SESSION['cognome'] = $row['cognome'];
-					header("location: dirigenza_page.php");  //renderizza alla home		
+					header("location: dirigenza_page.php");		
 				}
-				//$stmt->closeCursor(); in MySQL è inessenziale
 				$con = NULL; //chiudo connessione
 			} catch(PDOException $e) { //controllo errori di connessione
 				echo "Error: Failed to connect to DB: " . $e->getMessage();

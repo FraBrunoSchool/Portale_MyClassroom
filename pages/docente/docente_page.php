@@ -8,7 +8,7 @@
 </head>
 <body>
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-        <a class="navbar-brand" href="">
+        <a class="navbar-brand" href="../../index.html">
             <img src="../../img/logo.png" alt="..." width="150px" height="25px"/>
         </a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
@@ -23,13 +23,16 @@
                 <a class="nav-link" href="risultati_verifiche.php">Risultati Verifiche</a>
             </li>
             </ul>
+            <ul class="navbar-nav ml-auto">
+                <li class="nav-item">
+                <?php
+                    session_start();
+                    echo('<a class="badge badge-dark">' . $_SESSION['nome'] . '</a>');
+                ?>
+                </li>
+            </ul>
         </div>
     </nav>
-    <?php
-    session_start();
-    echo("Bentornato " . $_SESSION['nome']. " !");
-    session_abort();
-    ?>
     <!-- upload verifica -->
     <div class="card" style="margin-left: 20%; margin-right: 20%; margin-top: 5%">
         <div class="card-body">

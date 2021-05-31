@@ -8,7 +8,7 @@
 </head>
 <body>
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-        <a class="navbar-brand" href="">
+        <a class="navbar-brand" href="../../index.html">
             <img src="../../img/logo.png" alt="..." width="150px" height="25px"/>
         </a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
@@ -21,6 +21,15 @@
                 </li>
                 <li class="nav-item active">
                     <a class="nav-link" href="risultati_verifiche.php">Risultati Verifiche<span class="sr-only">(current)</span></a>
+                </li>
+            </ul>
+            <ul class="navbar-nav ml-auto">
+                <li class="nav-item">
+                <?php
+                    session_start();
+                    echo('<a class="badge badge-dark">' . $_SESSION['nome'] . '</a>');
+                    session_abort();
+                ?>
                 </li>
             </ul>
         </div>
@@ -52,7 +61,6 @@
             echo('<tr>');
             echo('<th scope="row">' . $row['id'] . '</th>');
             echo('<td><a href="http://localhost/Elaborato/Portale_MyClassroom/Uploads/' . $row['id'] . '_' . $row['file_veri'] . '/' . $row['file_stud']. '" target="_blank" >' . $row['file_stud'] . '</a></td>');
-            //echo('<a href="http://localhost/Elaborato/Portale_MyClassroom/Uploads/' . $row['id_verifica'] . '_' . $row['titolo_documento'] . '/' . $row['titolo_documento']. '" target="_blank" >' . $row['titolo_documento'] . '</a>');
             echo('<td>' . $row['nome'] . '</td>');
             echo('<td>' . $row['cognome'] . '</td>');
             if($row['voto'] == null){
@@ -61,9 +69,10 @@
                 echo('<td>' . $row['voto'] . '</td>');
             }
             }
-        $con = NULL;
-        session_abort();    
+        $con = NULL;    
     ?>
+    </tbody>
+    </table>
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-Piv4xVNRyMGpqkS2by6br4gNJ7DXjqk09RmUpJ8jgGtD7zP9yug3goQfGII0yAns" crossorigin="anonymous"></script>
 </body>
